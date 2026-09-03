@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "com.nicolasprogramador"
-version = "0.0.1-SNAPSHOT"
+version = "0.1"
 
 java {
 	toolchain {
@@ -21,6 +21,8 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-webmvc")
 	testImplementation("org.springframework.boot:spring-boot-starter-webmvc-test")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+
+	implementation("org.projectlombok:lombok:1.18.46")
 }
 
 tasks.withType<Test> {
