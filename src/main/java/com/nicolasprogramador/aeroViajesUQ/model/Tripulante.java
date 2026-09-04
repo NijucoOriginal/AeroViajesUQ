@@ -9,9 +9,13 @@ import lombok.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Tripulante extends Persona {
+public class Tripulante extends Persona implements Comparable<Tripulante> {
 
-    ListaSimple<Titulo> titulos; //Revisar tipo de dato
+    ListaSimple<Titulo> titulos;
     Rol rol;
 
+    @Override
+    public int compareTo(Tripulante o) {
+        return this.getRol().compareTo(o.getRol());
+    }
 }

@@ -10,10 +10,10 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Builder
 @NoArgsConstructor
-public class Boleto {
+public class Boleto implements Comparable<Boleto> {
 
     private String identificacion;
-    private Pasajero dueño;
+    private Pasajero duenio;
     private LocalDateTime fechaSalidaIda;
     private LocalDateTime fechaLlegadaIda;
     private LocalDateTime fechaLlegadaVuelta;
@@ -24,4 +24,10 @@ public class Boleto {
     private float costo;
     private Modalidad modalidad;
     private Silla silla;
+    private LocalDateTime fechaAdquisicion;
+
+    @Override
+    public int compareTo(Boleto o) {
+        return this.getFechaAdquisicion().compareTo(o.getFechaAdquisicion());
+    }
 }

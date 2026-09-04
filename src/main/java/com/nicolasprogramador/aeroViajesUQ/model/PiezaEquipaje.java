@@ -8,7 +8,7 @@ import lombok.*;
 @AllArgsConstructor
 @Builder
 @NoArgsConstructor
-public class PiezaEquipaje {
+public class PiezaEquipaje implements Comparable<PiezaEquipaje> {
 
     private String identificacion;
     private float alto;
@@ -16,4 +16,9 @@ public class PiezaEquipaje {
     private float ancho;
     private float peso;
     private boolean esEquipajeMano;
+
+    @Override
+    public int compareTo(PiezaEquipaje o) {
+        return Float.compare(this.getPeso(), o.getPeso());
+    }
 }

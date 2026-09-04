@@ -4,14 +4,21 @@ package com.nicolasprogramador.aeroViajesUQ.model;
 import com.nicolasprogramador.aeroViajesUQ.utils.ListaSimple;
 import lombok.*;
 
+import java.util.Comparator;
+import java.util.TreeSet;
+
 @Getter
 @Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Pasajero extends Persona {
+public class Pasajero extends Persona implements Comparable<Pasajero> {
 
-    private ListaSimple<Boleto> boletos; //Revisar tipo de dato
+    private TreeSet<Boleto> boletos;
     private float billetera;
-    private ListaSimple<Mascota> mascotas; //Revisar tipo de dato
+
+    @Override
+    public int compareTo(Pasajero o) {
+        return this.getPrimerApellido().compareTo(o.getPrimerApellido());
+    }
 }
